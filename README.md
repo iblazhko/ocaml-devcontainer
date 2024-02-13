@@ -4,10 +4,11 @@ This repository contains template for an OCaml project using
 [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers).
 
 [`devcontainer.json`](./.devcontainer/devcontainer.json) uses a pre-built
-Docker image based on Ubuntu 22.04 with the following components available
+Docker image based on `ocaml/opam:ubuntu-lts-ocaml-5.1` with the following
+components available:
 
 * `opam`
-* `ocaml` 5.0.0
+* `ocaml` 5.1.0
 * `ocaml-lsp-server`
 * `ocamlformat`
 * `alcotest`
@@ -16,11 +17,11 @@ Docker image based on Ubuntu 22.04 with the following components available
 * `base`
 * `core`
 
-Image is `iblazhko/ocaml-dev:5.0.0` and it is available from Docker Hub:
+Image is `iblazhko/ocaml-dev:5.1.0` and it is available from Docker Hub:
 <https://hub.docker.com/r/iblazhko/ocaml-dev>.
 
 ```bash
- docker pull iblazhko/ocaml-dev:5.0.0
+ docker pull iblazhko/ocaml-dev:5.1.0
 ```
 
 If you need to make any modifications to the development environment,
@@ -40,5 +41,5 @@ To build multi-platform image, use following command in `.devcontainer`:
 
 ```bash
 docker buildx create --name multiplatform --bootstrap --use
-docker buildx build --platform linux/amd64,linux/arm64 --push --tag iblazhko/ocaml-dev:5.0.0 .
+docker buildx build --platform linux/amd64,linux/arm64 --push --tag iblazhko/ocaml-dev:5.1.0 .
 ```
