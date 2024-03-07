@@ -1,6 +1,6 @@
 {
     "name": "OCaml 5.1",
-    "image": "docker.io/iblazhko/ocaml-dev:5.1.0",
+    "image": "docker.io/iblazhko/ocaml-dev:5.1.1",
     "customizations": {
         "vscode": {
             "extensions": [
