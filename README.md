@@ -4,11 +4,11 @@ This repository contains template for an OCaml project using
 [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers).
 
 [`devcontainer.json`](./.devcontainer/devcontainer.json) uses a pre-built
-Docker image based on `ocaml/opam:ubuntu-22.04-ocaml-5.3` with the following
+Docker image based on `ocaml/opam:ubuntu-24.04-ocaml-5.4` with the following
 components available:
 
--   `opam` 2.3.0
--   `ocaml` 5.3.0
+-   `opam` 2.5.0
+-   `ocaml` 5.4.1
 -   `ocaml-lsp-server`
 -   `ocamlformat`
 -   `odoc`
@@ -18,11 +18,11 @@ components available:
 -   `base`
 -   `core`
 
-Image is `iblazhko/ocaml-dev:5.3.0` and it is available from Docker Hub:
+Image is `iblazhko/ocaml-dev:5.4.1` and it is available from Docker Hub:
 <https://hub.docker.com/r/iblazhko/ocaml-dev>.
 
 ```bash
- docker pull iblazhko/ocaml-dev:5.3.0
+ docker pull iblazhko/ocaml-dev:5.4.1
 ```
 
 If you need to make any modifications to the development environment,
@@ -43,17 +43,17 @@ To build multi-platform image, use following commands in `.devcontainer`:
 Create multi-platform buildx container if you do not have one already:
 
 ```bash
-docker buildx create --name multiplatform --bootstrap --use
+docker buildx create --name multiplatform --bootstrap -platform linux/amd64,linux/arm64 --use
 ```
 
 Invoke multi-platform build and load resulting images into local Docker:
 
 ```bash
-docker buildx build --platform linux/amd64,linux/arm64 --load --tag iblazhko/ocaml-dev:5.3.0 --tag iblazhko/ocaml-dev:5.3 --tag iblazhko/ocaml-dev:latest .
+docker buildx build --platform linux/amd64,linux/arm64 --load --tag iblazhko/ocaml-dev:5.4.1 --tag iblazhko/ocaml-dev:5.4 --tag iblazhko/ocaml-dev:latest .
 ```
 
 Invoke multi-platform build and push resulting images to Docker Hub:
 
 ```bash
-docker buildx build --platform linux/amd64,linux/arm64 --push --tag iblazhko/ocaml-dev:5.3.0 --tag iblazhko/ocaml-dev:5.3 --tag iblazhko/ocaml-dev:latest .
+docker buildx build --platform linux/amd64,linux/arm64 --push --tag iblazhko/ocaml-dev:5.4.1 --tag iblazhko/ocaml-dev:5.4 --tag iblazhko/ocaml-dev:latest .
 ```
